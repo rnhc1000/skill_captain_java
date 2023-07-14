@@ -1,4 +1,4 @@
-package dayNine;
+package beginner.dayNine;
 
 import java.util.Arrays;
 /**

@@ -1,4 +1,4 @@
-package dayFive;
+package beginner.dayFive;
 
 public class Addition {
 

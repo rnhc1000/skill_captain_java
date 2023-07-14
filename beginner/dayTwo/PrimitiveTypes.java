@@ -1,4 +1,4 @@
-package dayTwo;
+package beginner.dayTwo;
 
 public class PrimitiveTypes {
 

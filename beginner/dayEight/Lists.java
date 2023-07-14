@@ -1,4 +1,4 @@
-package dayEight;
+package beginner.dayEight;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package daySeven;
+package beginner.daySeven;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-
+package beginner.dayOne;
 
 public class Solution {
 
