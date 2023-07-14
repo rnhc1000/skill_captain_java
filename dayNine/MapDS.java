@@ -33,15 +33,30 @@ public class MapDS {
         String text = input.nextLine();
 
         input.close();
-        // String modifiedText = text.replaceAll("\\s+", "");
+        String modifiedText = text.replaceAll("\\s+", "");
 
-        // System.out.println(modifiedText);
+        System.out.println(modifiedText);
 
         String str[] = text.split("\\s+");
+        modifiedText = modifiedText.toLowerCase();
 
-        // char c[] = modifiedText.toCharArray();
+        char direct[] = modifiedText.toCharArray();
+
+        int n = direct.length;
+        int maxKey = n-1;
+
+        char reverse[] = new char[n];
+
+        for(int i=0; i<n;i++) {
+
+            reverse[i]=direct[maxKey-i];
+        }
+
         System.out.println(Arrays.toString(str));
         
+        System.out.println(Arrays.toString(direct));
+        System.out.println(Arrays.toString(reverse));
+
         for (String sanitized : str) {
             sanitized = sanitized.replaceAll("[^a-zA-Z]", "").toLowerCase();
             int f = map.getOrDefault(sanitized, 0);
