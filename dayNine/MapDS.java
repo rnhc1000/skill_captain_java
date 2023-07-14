@@ -33,37 +33,45 @@ public class MapDS {
 
         // System.out.println(modifiedText);
 
-        String str[] = text.split(" ");
+        String str[] = text.split("\\s+");
 
         // char c[] = modifiedText.toCharArray();
-        // System.out.println(Arrays.toString(str));
-        Integer frequency = 1;
+        System.out.println(Arrays.toString(str));
+        
+        for (String sanitized : str) {
+            sanitized = sanitized.replaceAll("[^a-zA-Z]", "").toLowerCase();
+            int f = map.getOrDefault(sanitized, 0);
+            map.put(sanitized, f+1);
+        }
+        
+        // Integer frequency = 1;
 
-        for (int i = 0; i < str.length; i++) {
-            for (int j = i+1; j < str.length; j++) {
-                System.out.println(str[i] + " " + str[j]+ " ");
+        // for (int i = 0; i < str.length; i++) {
+        //     for (int j = i+1; j < str.length; j++) {
+        //         System.out.println(str[i] + " " + str[j]+ " ");
 
-                if (str[i].equals(str[j])) {
-                    System.out.println("-----------------");
-                    System.out.println("Iguais " + i + " str[i] " + str[i] + " " + j + " str[j] " + str[j]);
-                    System.out.println("-----------------");
-                    // j++;
-                    frequency+=1;
-                    System.out.println("Frequency " + frequency);
-                    map.put(str[i], frequency);
-                    System.out.println(map);
-                    //map.get(str[i]);
+        //         if (str[i].equals(str[j])) {
+        //             System.out.println("-----------------");
+        //             System.out.println("Iguais " + i + " str[i] " + str[i] + " " + j + " str[j] " + str[j]);
+        //             System.out.println("-----------------");
+        //             // j++;
+        //             frequency+=1;
+        //             System.out.println("Frequency " + frequency);
+        //             map.put(str[i], frequency);
+        //             System.out.println(map);
+        //             //map.get(str[i]);
+        //             //map.getOrDefault()
 
-                    //if (frequency >= str.length) break;
-                } 
+        //             //if (frequency >= str.length) break;
+        //         } 
 
-                // map.put(str[i],frequency);
-            }
+        //         // map.put(str[i],frequency);
+        //     }
+
+                System.out.println(map);
 
         }
 
-        System.out.println(map);
 
-    };
+    }
 
-}
