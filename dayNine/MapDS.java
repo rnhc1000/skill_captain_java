@@ -12,6 +12,10 @@ import java.util.Arrays;
  * Prompt the user to enter a paragraph of text.
  * Split the paragraph into individual words and count the frequency of each word.
  * Display the word and its frequency.
+ * Iterate over a HashMap...
+ * keySet() -> Key
+ * values() -> Value
+ * 
  * 
  */
 import java.util.HashMap;
@@ -67,6 +71,32 @@ public class MapDS {
 
         //         // map.put(str[i],frequency);
         //     }
+                // Display the word and its frequency
+                System.out.println("\nWord Frequency:");
+                // for (Map.Entry entry : map.entrySet()) {
+                //     String word = entry.getKey();
+                //     int frequency = entry.getValue();
+                //     System.out.println(word + ": " + frequency);
+                // }
+
+                for(String i : map.keySet()) {
+
+                    System.out.println(i);
+
+                }
+
+                for(Integer i : map.values()) {
+
+                    System.out.println(i);
+
+                }
+
+
+                for(String i : map.keySet()){
+
+                    System.out.println("Key -> " + i + " ... Value -> " + map.get(i));
+
+                }
 
                 System.out.println(map);
 
