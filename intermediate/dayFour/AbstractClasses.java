@@ -56,6 +56,10 @@ public class AbstractClasses {
 
     public static void main(String... args) {
 
+        Map<Integer, Car> detailsCar = new HashMap<Integer, Car>();
+        Map<Integer, Motorcycle> detailsBike = new HashMap<Integer,Motorcycle>();
+
+
         Scanner input = new Scanner(System.in);
         String make = "";
         String model = "";
