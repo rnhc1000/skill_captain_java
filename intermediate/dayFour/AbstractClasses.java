@@ -64,6 +64,7 @@ public class AbstractClasses {
         String make = "";
         String model = "";
         Integer year = 0;
+        Double price = 0d;
         Integer numOfDoors = 0;
         String fuelType = "";
         boolean hasSidecar = false;
@@ -82,6 +83,8 @@ public class AbstractClasses {
             fuelType = input.nextLine();
             System.out.print("Year-> ");
             year = input.nextInt();
+            System.out.print("Price-> ");
+            price = input.nextDouble();
             System.out.print("Number Of Doors-> ");
             numOfDoors = input.nextInt();
 
@@ -92,6 +95,8 @@ public class AbstractClasses {
             model = input.nextLine();
             System.out.print("Year-> ");
             year = input.nextInt();
+            System.out.print("Price-> ");
+            price = input.nextDouble();
             System.out.print("Has Sidecar?-> ");
             hasSidecar = input.nextBoolean();
             System.out.print("Power-> ");
@@ -101,13 +106,13 @@ public class AbstractClasses {
         if (!isBike) {
 
             // Car car = new Car("Mercedes-Benz", "C63-AMG4", 2012, 4, "gas");
-            Car car = new Car(make, model, year, numOfDoors, fuelType);
+            Car car = new Car(make, model, year, price, numOfDoors, fuelType);
             System.out.println(car);
 
         } else {
 
             // Motorcycle motorcycle = new Motorcycle("Kawasaki", "Z-900", 2023, true, 250);
-            Motorcycle motorcycle = new Motorcycle(make, model, year, hasSidecar, power);
+            Motorcycle motorcycle = new Motorcycle(make, model, year, price, hasSidecar, power);
             System.out.println(motorcycle);
 
         }

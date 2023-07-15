@@ -15,8 +15,8 @@ public class Motorcycle  extends DetailsVehicle {
     }
 
 
-    public Motorcycle(String make, String model, Integer year, boolean hasSidecar, Integer engineCapacity) {
-        super(make, model, year);
+    public Motorcycle(String make, String model, Integer year, Double price, boolean hasSidecar, Integer engineCapacity) {
+        super(make, model, year,price);
         this.hasSidecar = hasSidecar;
         this.engineCapacity = engineCapacity;
     }
