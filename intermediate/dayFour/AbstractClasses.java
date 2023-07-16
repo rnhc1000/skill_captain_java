@@ -155,6 +155,7 @@ public class AbstractClasses {
 
         System.out.print("Do you want to (R)emove or (E)dit a Vehicle? -> R/E ? ");
         String removedVehicle = "";
+        int vehicleToBeEdited = 0;
         String removeOrEdit = input.nextLine();
         removeOrEdit = removeOrEdit.toLowerCase();
 
@@ -196,13 +197,39 @@ public class AbstractClasses {
                 for (Map.Entry<Integer, Car> set : detailsCar.entrySet()) {
                     System.out.println(set.getKey() + " " + set.getValue());
                 }
+                System.out.print("Which one of the inventory you want to edit ? ");
+                vehicleToBeEdited = input.nextInt();
+                input.nextLine();
+
+                if (detailsCar.containsKey(vehicleToBeEdited)) {
+
+                    System.out.print("Make-> ");
+                    make = input.nextLine();
+                    System.out.print("Model-> ");
+                    model = input.nextLine();
+                    System.out.print("Fuel Type-> ");
+                    fuelType = input.nextLine();
+                    System.out.print("Year-> ");
+                    year = input.nextInt();
+                    System.out.print("Price-> ");
+                    price = input.nextDouble();
+                    System.out.print("Number Of Doors-> ");
+                    numOfDoors = input.nextInt();
+                    input.nextLine();
+                    detailsCar.put(vehicleToBeEdited, new Car(
+                        make, model, year, price, numOfDoors, fuelType));
+                    System.out.println("Vehicle Edited Succesfully! -> New inventory below!");
+                    detailsCar.forEach((key, value) -> System.out.println(key + " = " + value));
+
+
+                }
             } else {
 
                 for (Map.Entry<Integer, Motorcycle> set : detailsBike.entrySet()) {
                     System.out.println(set.getKey() + " " + set.getValue());
                 }
-                System.out.print("Which one of the inventory you want edit ? ");
-                int vehicleToBeEdited = input.nextInt();
+                System.out.print("Which one of the inventory you want to edit ? ");
+                vehicleToBeEdited = input.nextInt();
                 input.nextLine();
 
                 if (detailsBike.containsKey(vehicleToBeEdited)) {
