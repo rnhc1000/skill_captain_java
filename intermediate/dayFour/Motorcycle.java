@@ -16,7 +16,7 @@ public class Motorcycle  extends DetailsVehicle {
 
 
     public Motorcycle(String make, String model, Integer year, Double price, boolean hasSidecar, Integer engineCapacity) {
-        super(make, model, year,price);
+        super(make, model, year, price);
         this.hasSidecar = hasSidecar;
         this.engineCapacity = engineCapacity;
     }
@@ -44,7 +44,7 @@ public class Motorcycle  extends DetailsVehicle {
 
     @Override
     public String toString() {
-        return "Motorcycle [make=" + make + " model=" + model + " year=" + year + " hasSidecar=" + hasSidecar + " engineCapacity=" + engineCapacity + "]";
+        return "Motorcycle [make=" + make + " model=" + model + " year=" + year + " price=" + price + " hasSidecar=" + hasSidecar + " engineCapacity=" + engineCapacity + "]";
     }
 
 
