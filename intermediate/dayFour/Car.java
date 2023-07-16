@@ -17,8 +17,8 @@ public class Car extends DetailsVehicle{
         this.fuelType = fuelType;
     }
 
-    public Car(String make, String model, Integer year, int numDoors, String fuelType) {
-        super(make, model, year);
+    public Car(String make, String model, Integer year, Double price, int numDoors, String fuelType) {
+        super(make, model, year, price);
         this.numDoors = numDoors;
         this.fuelType = fuelType;
     }
@@ -42,7 +42,7 @@ public class Car extends DetailsVehicle{
     
     @Override
     public String toString() {
-        return "Car [make=" + make + " model=" + model + " year=" + year + " numDoors=" + numDoors + ", fuelType=" + fuelType + "]";
+        return "Car [make=" + make + " model=" + model + " year=" + year + " price=" + price + " numDoors=" + numDoors + ", fuelType=" + fuelType + "]";
     }
 
     public HashMap<Integer, DetailsVehicle> displayDetails() {

@@ -1,5 +1,6 @@
 package intermediate.dayFour;
 
+import java.util.ArrayList;
 /**
  * Assignment: Abstract Class - Vehicle Inventory System
  * You have been tasked with creating a vehicle inventory system that can store 
@@ -49,6 +50,7 @@ package intermediate.dayFour;
  * 
  */
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -56,58 +58,208 @@ public class AbstractClasses {
 
     public static void main(String... args) {
 
+        Map<Integer, Car> detailsCar = new HashMap<Integer, Car>();
+        Map<Integer, Motorcycle> detailsBike = new HashMap<Integer, Motorcycle>();
+
         Scanner input = new Scanner(System.in);
         String make = "";
         String model = "";
         Integer year = 0;
+        Double price = 0d;
         Integer numOfDoors = 0;
         String fuelType = "";
         boolean hasSidecar = false;
+        String sidecar = "N";
         Integer power = 0;
         boolean isBike = true;
+        int amountOfVehicles = 0;
+        int inventory = 0;
+        System.out.print("Inform the amount of Vehicles:-> ");
+        amountOfVehicles = input.nextInt();
+        input.nextLine();
         System.out.print("Please choose car or bike-> (car || bike)-> ");
         String type = input.nextLine();
         type = type.toLowerCase();
-        if (type.equals("car")) {
-            isBike = false;
-            System.out.print("Make-> ");
-            make = input.nextLine();
-            System.out.print("Model-> ");
-            model = input.nextLine();
-            System.out.print("Fuel Type-> ");
-            fuelType = input.nextLine();
-            System.out.print("Year-> ");
-            year = input.nextInt();
-            System.out.print("Number Of Doors-> ");
-            numOfDoors = input.nextInt();
 
-        } else if (type.equals("motorcycle") || type.equals("bike")) {
-            System.out.print("Make-> ");
-            make = input.nextLine();
-            System.out.print("Model-> ");
-            model = input.nextLine();
-            System.out.print("Year-> ");
-            year = input.nextInt();
-            System.out.print("Has Sidecar?-> ");
-            hasSidecar = input.nextBoolean();
-            System.out.print("Power-> ");
-            power = input.nextInt();
+        for (int countOfVehicles = 1; countOfVehicles <= amountOfVehicles; countOfVehicles++) {
+
+            if (type.equals("car")) {
+                isBike = false;
+                System.out.print("Make-> ");
+                make = input.nextLine();
+                System.out.print("Model-> ");
+                model = input.nextLine();
+                System.out.print("Fuel Type-> ");
+                fuelType = input.nextLine();
+                System.out.print("Year-> ");
+                year = input.nextInt();
+                System.out.print("Price-> ");
+                price = input.nextDouble();
+                System.out.print("Number Of Doors-> ");
+                numOfDoors = input.nextInt();
+                input.nextLine();
+                detailsCar.put(countOfVehicles, new Car(
+                        make, model, year, price, numOfDoors, fuelType));
+
+                inventory++;
+                System.out.println("Size of Inventory: -> " + inventory);
+
+            } else if (type.equals("motorcycle") || type.equals("bike")) {
+                System.out.print("Make-> ");
+                make = input.nextLine();
+                System.out.print("Model-> ");
+                model = input.nextLine();
+                System.out.print("Year-> ");
+                year = input.nextInt();
+                System.out.print("Price-> ");
+                price = input.nextDouble();
+                input.nextLine();
+                System.out.print("Has Sidecar?-> (S/N) ");
+                sidecar = input.nextLine();
+                sidecar = sidecar.toLowerCase();
+                hasSidecar = (sidecar.equals("sim") || sidecar.equals("s")) ? true : false;
+                System.out.print("Power-> ");
+                power = input.nextInt();
+                detailsBike.put(countOfVehicles, new Motorcycle(
+                        make, model, year, price, hasSidecar, power));
+                inventory++;
+                System.out.println("Size of Inventory: -> " + inventory);
+                input.nextLine();
+            }
+
         }
 
         if (!isBike) {
 
             // Car car = new Car("Mercedes-Benz", "C63-AMG4", 2012, 4, "gas");
-            Car car = new Car(make, model, year, numOfDoors, fuelType);
-            System.out.println(car);
+            // Car car = new Car(make, model, year, price, numOfDoors, fuelType);
+
+            for (Map.Entry<Integer, Car> set : detailsCar.entrySet()) {
+
+                System.out.println(set.getKey() + " " + set.getValue());
+
+            }
 
         } else {
 
             // Motorcycle motorcycle = new Motorcycle("Kawasaki", "Z-900", 2023, true, 250);
-            Motorcycle motorcycle = new Motorcycle(make, model, year, hasSidecar, power);
-            System.out.println(motorcycle);
+            // Motorcycle motorcycle = new Motorcycle(make, model, year, price, hasSidecar,
+            // power);
+            for (Map.Entry<Integer, Motorcycle> set : detailsBike.entrySet()) {
+
+                System.out.println(set.getKey() + " " + set.getValue());
+
+            }
 
         }
 
-    }
+        System.out.print("Do you want to (R)emove or (E)dit a Vehicle? -> R/E ? ");
+        String removedVehicle = "";
+        int vehicleToBeEdited = 0;
+        String removeOrEdit = input.nextLine();
+        removeOrEdit = removeOrEdit.toLowerCase();
 
+        if (removeOrEdit.equals("r")) {
+
+            System.out.print("Which Vehicle will be Removed ? (C)ar/(M)otorcycle -> C/M ?");
+            removedVehicle = input.nextLine();
+            removedVehicle = removedVehicle.toLowerCase();
+
+            if (removedVehicle.equals("c")) {
+                isBike = false;
+
+                System.out.println("There are " + inventory + " cars available");
+                detailsCar.forEach((key, value) -> System.out.println(key + " = " + value));
+                System.out.print("Which one you want to remove -> ");
+                int removeVehicle = input.nextInt();
+                detailsCar.remove(removeVehicle);
+                System.out.println("Vehicle Removed  New inventory");
+                detailsCar.forEach((key, value) -> System.out.println(key + " = " + value));
+
+            } else {
+
+                System.out.println("There are " + inventory + " bikes available");
+                detailsBike.forEach((key, value) -> System.out.println(key + " = " + value));
+                System.out.print("Which one you want to remove -> ");
+                int removeVehicle = input.nextInt();
+                detailsBike.remove(removeVehicle);
+                System.out.println("Vehicle Removed -> New inventory below!");
+                detailsBike.forEach((key, value) -> System.out.println(key + " = " + value));
+
+            }
+
+        } else {
+
+            System.out.println("This is the current inventory...!");
+
+            if (!isBike) {
+
+                for (Map.Entry<Integer, Car> set : detailsCar.entrySet()) {
+                    System.out.println(set.getKey() + " " + set.getValue());
+                }
+                System.out.print("Which one of the inventory you want to edit ? ");
+                vehicleToBeEdited = input.nextInt();
+                input.nextLine();
+
+                if (detailsCar.containsKey(vehicleToBeEdited)) {
+
+                    System.out.print("Make-> ");
+                    make = input.nextLine();
+                    System.out.print("Model-> ");
+                    model = input.nextLine();
+                    System.out.print("Fuel Type-> ");
+                    fuelType = input.nextLine();
+                    System.out.print("Year-> ");
+                    year = input.nextInt();
+                    System.out.print("Price-> ");
+                    price = input.nextDouble();
+                    System.out.print("Number Of Doors-> ");
+                    numOfDoors = input.nextInt();
+                    input.nextLine();
+                    detailsCar.put(vehicleToBeEdited, new Car(
+                        make, model, year, price, numOfDoors, fuelType));
+                    System.out.println("Vehicle Edited Succesfully! -> New inventory below!");
+                    detailsCar.forEach((key, value) -> System.out.println(key + " = " + value));
+
+
+                }
+            } else {
+
+                for (Map.Entry<Integer, Motorcycle> set : detailsBike.entrySet()) {
+                    System.out.println(set.getKey() + " " + set.getValue());
+                }
+                System.out.print("Which one of the inventory you want to edit ? ");
+                vehicleToBeEdited = input.nextInt();
+                input.nextLine();
+
+                if (detailsBike.containsKey(vehicleToBeEdited)) {
+
+                    System.out.print("Make-> ");
+                    make = input.nextLine();
+                    System.out.print("Model-> ");
+                    model = input.nextLine();
+                    System.out.print("Year-> ");
+                    year = input.nextInt();
+                    System.out.print("Price-> ");
+                    price = input.nextDouble();
+                    input.nextLine();
+                    System.out.print("Has Sidecar?-> (S/N) ");
+                    sidecar = input.nextLine();
+                    sidecar = sidecar.toLowerCase();
+                    hasSidecar = (sidecar.equals("sim") || sidecar.equals("s")) ? true : false;
+                    System.out.print("Power-> ");
+                    power = input.nextInt();
+                    detailsBike.put(vehicleToBeEdited, new Motorcycle(
+                            make, model, year, price, hasSidecar, power));
+                    System.out.println("Vehicle Edited Succesfully! -> New inventory below!");
+                    detailsBike.forEach((key, value) -> System.out.println(key + " = " + value));
+
+                } else {
+                    System.out.println("Vehicle Not Found... Bye!!!");
+
+                }
+            }
+        }
+
+    }
 }
