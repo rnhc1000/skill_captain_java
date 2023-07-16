@@ -36,7 +36,7 @@ package intermediate.dayFive;
  * 
  */
 
-public class InterfaceJava implements MusicPlayer{
+public class MyMusicPlayer implements MusicPlayer{
 
 
     public boolean play(){
