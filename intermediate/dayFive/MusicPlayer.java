@@ -1,4 +1,8 @@
 package intermediate.dayFive;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 
  * All methods shall return a boolean as:
@@ -9,7 +13,7 @@ package intermediate.dayFive;
  */
 public interface MusicPlayer {
 
-        public boolean play();
+        public boolean play(Long musicId, Map<Long, PlayList> playList);
         public boolean pause();
         public boolean stop();
         public boolean addSong(String song);

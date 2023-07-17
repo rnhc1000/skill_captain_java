@@ -1,5 +1,7 @@
 package intermediate.dayFive;
 
+import java.util.Map;
+
 public class PlayList {
     
     private long id;
@@ -13,7 +15,11 @@ public class PlayList {
     public PlayList() {
     }
 
-    public PlayList(long id, String nameOfSong, String singer, String band, String album, String shortLyrics,
+    public PlayList(Long id) {
+        this.id=id;
+    }
+
+    public PlayList(Long id, String nameOfSong, String singer, String band, String album, String shortLyrics,
             int year) {
         this.id = id;
         this.nameOfSong = nameOfSong;
@@ -33,7 +39,6 @@ public class PlayList {
         this.shortLyrics = shortLyrics;
         this.year = year;
     }
-
 
 
     public long getId() {
@@ -118,6 +123,9 @@ public class PlayList {
         if (id != other.id)
             return false;
         return true;
+    }
+
+    public void play(Long songChosen, Map<Long, PlayList> playList) {
     }
 
 }
