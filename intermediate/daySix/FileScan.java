@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import java.util.Collection;
 
 public class FileScan {
 
@@ -15,29 +14,23 @@ public class FileScan {
 
     public void fileScan(String filePath) {
 
-        List<String> r = new ArrayList<>();
+        List<String> listOfWords = new ArrayList<>();
 
-        try (Scanner s = new Scanner(new FileReader(filePath))) {
-            while (s.hasNext()) {
+        try (Scanner reader = new Scanner(new FileReader(filePath))) {
+            while (reader.hasNext()) {
 
-                r.add(s.next());
+                listOfWords.add(reader.next());
             }
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        //System.out.println(r);
-
-        //r.forEach(c -> System.out.print(c + " "));
-        //System.out.println(r.size());
 
         Pattern pattern = Pattern.compile("Java");
-        r.stream().filter(s -> s.equalsIgnoreCase("Java")).forEach(System.out::println);
 
-        List<String> x = r.stream().filter(pattern.asPredicate()).collect(Collectors.toList());
+        List<String> javaCount = listOfWords.stream().filter(pattern.asPredicate()).collect(Collectors.toList());
 
-        System.out.println("Total occurences of 'Java': "+x.size());
+        System.out.println("Total occurences of 'Java': "+ javaCount.size());
 
 
     }

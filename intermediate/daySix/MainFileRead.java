@@ -4,9 +4,7 @@ import java.io.IOException;
 
 public class MainFileRead {
 
-    public static void main(String[] args)  {
-
-        System.out.println("Testing if file exists or not");
+    public static void main(String[] args) {
 
         FileExists fileExists = new FileExists();
 
@@ -14,22 +12,25 @@ public class MainFileRead {
 
         boolean isFileAvailable = fileExists.existsFile(filePath);
 
-        System.out.println(isFileAvailable);
+        if (isFileAvailable) {
 
-        FileRead fileRead= new FileRead();
+            FileRead fileRead = new FileRead();
 
-        try {
-            fileRead.readFile(filePath);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            try {
+                fileRead.readFile(filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            FileScan fileScan = new FileScan();
+
+            fileScan.fileScan(filePath);
+
+        } else {
+
+            System.out.println("File not available...");
         }
 
-        FileScan fileScan = new FileScan();
-
-        fileScan.fileScan(filePath);
-
-
     }
-    
+
 }

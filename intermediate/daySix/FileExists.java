@@ -20,11 +20,8 @@ public class FileExists {
             if (handler.createNewFile()) {
 
                 System.out.println("File created with success! " + handler.getName());
-            } else {
-
-                System.out.println("File already exists!!!:-> " + handler.getName());
-
-            }
+            } 
+            
         } catch (IOException e) {
 
             System.out.println("Error ocurred...!");
