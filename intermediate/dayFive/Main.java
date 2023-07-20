@@ -1,4 +1,5 @@
 package intermediate.dayFive;
+
 /**
  * 
  * Assignment: Music Player Interface
@@ -50,19 +51,20 @@ public class Main {
         Integer numberOfSongs = 0;
         Map<Long, PlayList> playList = new HashMap<Long, PlayList>();
         boolean isValid = false;
-        String nameOfSong="";
-        String singer="";
-        String band="";
-        String album="";
-        String shortLyrics="";
+        String nameOfSong = "";
+        String singer = "";
+        String band = "";
+        String album = "";
+        String shortLyrics = "";
         Integer year;
+        Long songChosen = 0L;
 
         System.out.print("Input the number of songs you want to listen to... -> ");
         while (!isValid) {
             try {
                 songs = input.nextLine();
                 numberOfSongs = Integer.parseInt(songs);
-                isValid=true;
+                isValid = true;
             } catch (NumberFormatException e) {
                 System.out.println("Number Invalid! Try another one...");
             }
@@ -84,34 +86,73 @@ public class Main {
             input.nextLine();
 
             playList.put(i, new PlayList(
-                i,
-                nameOfSong,
-                singer,
-                band,
-                album,
-                shortLyrics,
-                year
-            ));
+                    i,
+                    nameOfSong,
+                    singer,
+                    band,
+                    album,
+                    shortLyrics,
+                    year));
         }
-        
+
+        System.out.print("What's next.... (L)isten to a song, (A)dd a song, (R)emove a song, (P)ause a song-> (L)/(A)/(R)/(P)-> ");
+
+        String choiceOfCustomer = input.nextLine();
+        choiceOfCustomer = choiceOfCustomer.toLowerCase();
+
+        switch (choiceOfCustomer) {
+
+            case "l":
+
+                System.out.println("Playlist available .... Which song you want to play...");
+                playList.forEach((k, v) -> System.out.println(k + " " + v));
+                System.out.print("Pick the song you want to listen to -> ");
+                songChosen = input.nextLong();
+
+                System.out.println("Song chosen -> " + songChosen);
+
+                // songChosen--;
+
+                // System.out.println(playList.get(songChosen));
+
+                myMusicPlayer.play(songChosen, playList);
+
+                break;
+
+            case "a":
+                myMusicPlayer.addSong(songChosen, playList);
+
+                System.out.println("Added Song...");
+
+                break;
+
+
+            case "r":
+                myMusicPlayer.removeSong(playList);
+                System.out.println("Song Removed...");
+                break;
+
+            case "p":
+                myMusicPlayer.pause(playList);
+                break;
+
+            default:
+                break;
+
+        }
 
         System.out.println("Playlist available .... Which song you want to play...");
-        
-        playList.forEach((k,v) -> System.out.println(k + " " + v));
+        playList.forEach((k, v) -> System.out.println(k + " " + v));
         System.out.print("Pick the song you want to listen to -> ");
-        Long songChosen = input.nextLong();
+        songChosen = input.nextLong();
 
         System.out.println("Song chosen -> " + songChosen);
 
-        //songChosen--;
+        // songChosen--;
 
-        //System.out.println(playList.get(songChosen));
-
+        // System.out.println(playList.get(songChosen));
 
         myMusicPlayer.play(songChosen, playList);
 
-        input.close();
-
     }
-
 }

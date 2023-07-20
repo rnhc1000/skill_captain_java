@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public interface MusicPlayer {
 
-        public boolean play(Long musicId, Map<Long, PlayList> playList);
-        public boolean pause();
-        public boolean stop();
-        public boolean addSong(String song);
-        public boolean removeSong(String song);
+        public boolean play(Long musicId, Map<Long, PlayList> PlayList);
+        public boolean pause(Map<Long, PlayList> PlayList);
+        public boolean stop(Long musicId, Map<Long, PlayList> PlayList);
+        public boolean addSong(Long musicId, Map<Long, PlayList> PlayList);
+        public boolean removeSong(Map<Long, PlayList> PlayList);
     
 }
