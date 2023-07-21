@@ -1,5 +1,9 @@
 package intermediate.dayTen;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /*
  * Assignment: Implementing the "Add to Cart" Feature
  * Objective:
@@ -43,6 +47,10 @@ Note: Maintain good coding practices, structure, and error handling in your impl
 
  * 
  */
-public class AddCart {
-    
+public class Main {
+
+   public static void main(String[] args) {
+
+
+   }
 }
