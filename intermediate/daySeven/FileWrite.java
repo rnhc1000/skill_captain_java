@@ -21,12 +21,9 @@ public class FileWrite {
 
         String text = input.nextLine();
 
-        // System.out.println("OK... " + text);
-
         String fileName = "output.txt";
         String filePath = "intermediate/daySeven/";
 
-        // System.out.println(fileName);
         FileExists fileExists = new FileExists();
         boolean isFileAvailable = fileExists.existsFile(filePath,fileName);
         fileName = filePath.concat(fileName);
