@@ -25,15 +25,14 @@ public class FileScan {
             e.printStackTrace();
         }
 
-
         Pattern pattern = Pattern.compile("Java");
 
-        List<String> javaCount = listOfWords.stream().filter(pattern.asPredicate()).collect(Collectors.toList());
+        List<String> javaCount = listOfWords.stream()
+                .filter(pattern.asPredicate())
+                .collect(Collectors.toList());
 
-        System.out.println("Total occurences of 'Java': "+ javaCount.size());
-
+        System.out.println("Total occurences of 'Java': " + javaCount.size());
 
     }
-    
-}
 
+}

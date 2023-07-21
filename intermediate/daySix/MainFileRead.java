@@ -8,9 +8,10 @@ public class MainFileRead {
 
         FileExists fileExists = new FileExists();
 
-        String filePath = "intermediate/daySix/input.txt";
+        String filePath = "intermediate/daySix/";
+        String fileName = "input.txt";
 
-        boolean isFileAvailable = fileExists.existsFile(filePath);
+        boolean isFileAvailable = fileExists.existsFile(filePath, fileName);
 
         if (isFileAvailable) {
 

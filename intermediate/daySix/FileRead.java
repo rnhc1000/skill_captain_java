@@ -38,7 +38,7 @@ public class FileRead {
 
     public void readFile(String filePath) throws IOException {
 
-        List<String> text = new ArrayList<>();
+        //List<String> text = new ArrayList<>();
         BufferedReader br = null;
 
         try {
@@ -47,7 +47,7 @@ public class FileRead {
             String line = "";
             while ((line = br.readLine()) != null) {
 
-                text.add(line);
+                System.out.println(line);
             }
 
         } catch (IOException e) {
