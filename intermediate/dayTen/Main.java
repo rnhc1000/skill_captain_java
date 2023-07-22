@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 /*
  * Assignment: Implementing the "Add to Cart" Feature
@@ -53,14 +54,15 @@ public class Main {
    public static void main(String[] args) {
 
       ProductProvisioning provisioning = new ProductProvisioning();
+      HashMap<String, Product> listOfProducts = new HashMap<String, Product>();
 
       try {
-         provisioning.provisionProducts();
+         listOfProducts = provisioning.provisionProducts();
+         //istOfProducts.forEach((k, v) -> System.out.println(k + v));
+         System.out.println(listOfProducts.values());
       } catch (FileNotFoundException e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
-
 
    }
 }
