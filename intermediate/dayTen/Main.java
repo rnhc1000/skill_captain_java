@@ -1,6 +1,7 @@
 package intermediate.dayTen;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -50,6 +51,15 @@ Note: Maintain good coding practices, structure, and error handling in your impl
 public class Main {
 
    public static void main(String[] args) {
+
+      ProductProvisioning provisioning = new ProductProvisioning();
+
+      try {
+         provisioning.provisionProducts();
+      } catch (FileNotFoundException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
 
 
    }

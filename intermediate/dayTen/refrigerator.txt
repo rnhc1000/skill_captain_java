@@ -1,16 +1,5 @@
-refrigerator :
-
-SAMSUNG 2-door Stainless Steel Refrigerator :
-
-Add a functional yet appealing touch to your kitchen space 
-with the SAMSUNG French door refrigerator with ice dispenser. 
-Supported by functions like Power Freeze, Surround Air and much more, 
-this home appliance is versatile and user-friendly. 
-The trendy design with a large 27 cu. ft. storage capacity blends form with utility. 
-The fingerprint-resistant finish accentuates the beauty of this refrigerator, 
-while the interior LED lighting improves the visibility in the dark. :
-
-8000.00 :
-
-10 :
-
+refrigerator:
+SAMSUNG 2-door Stainless Steel Refrigerator:
+Add a functional yet appealing touch to your kitchen space with the SAMSUNG French door refrigerator with ice dispenser. Supported by functions like Power Freeze, Surround Air and much more, this home appliance is versatile and user-friendly. The trendy design with a large 27 cu. ft. storage capacity blends form with utility. The fingerprint-resistant finish accentuates the beauty of this refrigerator, while the interior LED lighting improves the visibility in the dark.:
+8000:
+100:

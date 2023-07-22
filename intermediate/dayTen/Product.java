@@ -10,9 +10,9 @@ public class Product {
 
     private Double price;
 
-    private Integer quantity;
+    private Double quantity;
 
-    public Product(String productId, String productName, String description, Double price, Integer quantity) {
+    public Product(String productId, String productName, String description, Double price, Double quantity) {
         this.productId = productId;
         this.productName = productName;
         this.description = description;
@@ -55,11 +55,11 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 
