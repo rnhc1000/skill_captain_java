@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 /*
@@ -51,18 +52,25 @@ Note: Maintain good coding practices, structure, and error handling in your impl
  */
 public class Main {
 
-   public static void main(String[] args) {
+   public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-      ProductProvisioning provisioning = new ProductProvisioning();
-      HashMap<String, Product> listOfProducts = new HashMap<String, Product>();
+      // ProductProvisioning provisioning = new ProductProvisioning();
+      // HashMap<String, Product> listOfProducts = new HashMap<String, Product>();
 
-      try {
-         listOfProducts = provisioning.provisionProducts();
-         //istOfProducts.forEach((k, v) -> System.out.println(k + v));
-         System.out.println(listOfProducts.values());
-      } catch (FileNotFoundException e) {
-         e.printStackTrace();
-      }
+      // try {
+      //    listOfProducts = provisioning.provisionProducts();
+      //    //istOfProducts.forEach((k, v) -> System.out.println(k + v));
+      //    System.out.println(listOfProducts.values());
+      // } catch (FileNotFoundException e) {
+      //    e.printStackTrace();
+      // }
 
+      // InsertProductDB insertDB = new InsertProductDB();
+      
+      // insertDB.insertDatabase();
+
+      SearchProductDB searchDB = new SearchProductDB();
+
+      searchDB.displayInventory();
    }
 }
