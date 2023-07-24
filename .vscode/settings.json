@@ -1,5 +1,9 @@
 {
     "java.project.sourcePaths": [
         "."
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "intermediate/dayTen/h2-2.2.220.jar"
     ]
 }
