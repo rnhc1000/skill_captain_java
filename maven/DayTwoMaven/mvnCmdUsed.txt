@@ -1,0 +1,22 @@
+#Maven path
+mvn: /opt/apache-maven-3.9.3/bin/mvn /opt/apache-maven-3.9.3/bin/mvn.cmd
+#Maven Project Setup
+mvn archetype:generate -DgroupId=br.dev.ferreiras -DartifactId=DayTwoMaven -DarchetypeArtifactId=maven-archetype-quickstart -Dinteractive=false
+
+.
+└── DayTwoMaven
+    ├── mvnCmdUsed.txt
+    ├── pom.xml
+    └── src
+        ├── main
+        │   └── java
+        │       └── br
+        │           └── dev
+        │               └── ferreiras
+        │                   └── App.java
+        └── test
+            └── java
+                └── br
+                    └── dev
+                        └── ferreiras
+                            └── AppTest.java
