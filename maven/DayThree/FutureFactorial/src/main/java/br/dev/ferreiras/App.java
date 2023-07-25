@@ -24,14 +24,11 @@ public class App {
         int number = input.nextInt();
 
         Factorial numberToBeFactored = new Factorial(number);
-        input.close();
-        System.out.println("Task had just submitted....");
+        System.out.println("Task had just been submitted to...");
         Future<Long> future = threadPool.submit(numberToBeFactored);
 
         while (!future.isDone()) {
-            System.out.println("Task in proces...!");
-            System.out.print(".");
-            Thread.sleep(1);
+            System.out.println("Task being processed...Wait!");
         }
 
         System.out.println("Task done...");
@@ -39,6 +36,8 @@ public class App {
         long factorial = (long) future.get();
         System.out.println("Factorial is equal to: " + factorial);
         threadPool.shutdown();
+        input.close();
+
     }
 
     private static class Factorial implements Callable<Long> {
