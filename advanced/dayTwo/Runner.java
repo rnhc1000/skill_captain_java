@@ -1,19 +1,28 @@
 package advanced.dayTwo;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Runner implements Runnable {
 
 
     @Override
     public void run() {
-        
+        List<String> race = Arrays.asList();
 
-        double distance = 100d;
+        double distanceTravelled = 0d;
 
-        double distanceTravelled = 1 + Math.random() * 99d;
+        while (distanceTravelled < 100) {
 
+            distanceTravelled = 1 + Math.random() * 100d;
+            //System.out.printf("%.2f ", distanceTravelled);
+        }
 
+        String win = Thread.currentThread().getName();
+        // race.add(win);
 
-        throw new UnsupportedOperationException("Unimplemented method 'run'");
+        System.out.print(win + " ");
+        //throw new UnsupportedOperationException("Unimplemented method 'run'");
     }
 
 }
