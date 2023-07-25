@@ -1,5 +1,5 @@
-package br.dev.ferreiras;
-
+package maven.DayTwo.src.main.java.br.dev.ferreiras;
+import java.nio.*;
 /**
  * Hello world!
  *
