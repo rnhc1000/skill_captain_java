@@ -2,6 +2,7 @@ package advanced.dayOne;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Assignments:
@@ -20,23 +21,39 @@ import java.util.List;
  */
 public class ThreadsJava {
 
-    synchronized public static void main(String[] args) {
+    static List<Integer> numbers = new ArrayLis<>();
 
+    public static void main(String[] args) {
+
+        Random random = new Random();
+        int count = random.nextInt(10, 100);
+        for (int i = 0; i < count; i++) {
+            int x = random.nextInt(1, 1000);
+            numbers.add(x);
+        }
+
+        System.out.println(count);
         ThreadA even = new ThreadA();
         ThreadB odd = new ThreadB();
-
+        long start = System.currentTimeMillis();
         even.start();
         odd.start();
+        // even.join();
+        // odd.join();
+
+        long end = System.currentTimeMillis();
+        long process = end - start;
+
+        System.out.println("Execution time: " + process + "ms");
 
     }
 
     static class ThreadA extends Thread {
 
-        private String threadName;
-
-        ThreadA(String threadName) {
+        ThreadA(Thread threadName) {
 
             this.threadName = threadName;
+            this.numbers = numbers;
         }
 
         public ThreadA() {
@@ -45,20 +62,17 @@ public class ThreadsJava {
         @Override
         public void run() {
 
-            List<Integer> numbers = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-            numbers.stream().filter(element -> element % 2 == 0).forEach(System.out::print);
-            System.out.print(" ");
+            System.out.println(getOdd(numbers));
         }
 
     }
 
     static class ThreadB extends Thread {
 
-        private String threadName;
-
-        ThreadB(String threadName) {
+        ThreadB(Thread threadName) {
 
             this.threadName = threadName;
+            this.numbers = numbers;
         }
 
         public ThreadB() {
@@ -67,14 +81,22 @@ public class ThreadsJava {
         @Override
         public void run() {
 
-            List<Integer> numbers = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-
-            numbers.stream().filter(element -> element % 2 == 1).forEach(System.out::print);
-
-            System.out.print(" ");
+            System.out.println(getEven(numbers));
 
         }
 
+    }
+
+    private static synchronized List<Integer> getEven(List<Integer> list) {
+        return numbers.stream().filter(element -> element % 2 == 0).toList();
+    }
+
+    private static synchronized List<Integer> getOdd(List<Integer> list) {
+        return numbers.stream().filter(element -> element % 2 == 1).toList();
+    }
+
+    private static void getResult() {
+        return result;
     }
 
 }

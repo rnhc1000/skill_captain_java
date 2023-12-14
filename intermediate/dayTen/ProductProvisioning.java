@@ -14,9 +14,9 @@ import java.util.Scanner;
 
 public class ProductProvisioning {
 
-    public HashMap<String, Product> provisionProducts() throws FileNotFoundException {
+    public Map<String, Product> provisionProducts() throws FileNotFoundException {
 
-        HashMap<String, Product> provisioning = new HashMap<String, Product>();
+        Map<String, Product> provisioning = new HashMap<>();
         Product product = new Product();
 
         // BufferedReader br = null;
