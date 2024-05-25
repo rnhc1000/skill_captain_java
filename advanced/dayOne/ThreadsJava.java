@@ -21,9 +21,9 @@ import java.util.Random;
  */
 public class ThreadsJava {
 
-    static List<Integer> numbers = new ArrayLis<>();
+    static List<Integer> numbers = new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
         Random random = new Random();
         int count = random.nextInt(10, 100);
@@ -51,7 +51,6 @@ public class ThreadsJava {
     static class ThreadA extends Thread {
 
         ThreadA(Thread threadName) {
-
             this.threadName = threadName;
             this.numbers = numbers;
         }

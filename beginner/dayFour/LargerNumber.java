@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class LargerNumber {
 
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
         System.out.print("Input the first number -> ");
         int numberOne = input.nextInt();
@@ -17,8 +16,5 @@ public class LargerNumber {
         int largerNumber = (numberOne > numberTwo) ? numberOne : numberTwo;
         input.close();
         System.out.println("Number " + largerNumber + " is the largest");
-
-        
     }
-    
 }

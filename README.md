@@ -24,8 +24,7 @@ A very good site to learn and practice coding. Lots of challenges and the most i
 ## _Links_
 - Live Site URL: [https://skillcaptain.app] 
 ## _Built with_
-
- ![](https://ferreiras.dev.br/assets/images/icons/java-icon.svg)| ![](https://ferreiras.dev.br/assets/images/icons/git-scm-icon.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-intellij-idea.svg) | ![](https://ferreiras.dev.br/assets/images/icons/linux-original.svg) | ![](https://ferreiras.dev.br/assets/images/icons/icons8-visual-studio-code.svg)
+[![My Skills](https://skillicons.dev/icons?i=java,git,idea,redhat)](https://skillicons.dev)
 
  ## _What I practiced_
 ```java
@@ -34,9 +33,9 @@ A very good site to learn and practice coding. Lots of challenges and the most i
  * Assignments:
  * Print numbers from 1 to 10 using two threads, where each thread prints
  * alternate numbers.
- * Create two threads, ThreadA and ThreadB.
- * ThreadA should print odd numbers (1, 3, 5, 7, 9) and
- * ThreadB should print even numbers (2, 4, 6, 8, 10).
+ * Create two threads, ThreadEven and ThreadOdd.
+ * ThreadEven should print odd numbers (1, 3, 5, 7, 9) and
+ * ThreadOdd should print even numbers (2, 4, 6, 8, 10).
  * Implement the logic to print the numbers inside the run() method of each
  * thread.
  * Synchronize the threads to ensure proper alternating printing.
@@ -64,8 +63,8 @@ public class ThreadsJava {
         }
 
         System.out.println(count);
-        ThreadA even = new ThreadA();
-        ThreadB odd = new ThreadB();
+        ThreadEven even = new ThreadEven();
+        ThreadOdd odd = new ThreadOdd();
         long start = System.currentTimeMillis();
         even.start();
         odd.start();
@@ -79,15 +78,15 @@ public class ThreadsJava {
 
     }
 
-    static class ThreadA extends Thread {
+    static class ThreadEven extends Thread {
 
-        ThreadA(Thread threadName) {
+        ThreadEven(Thread threadName) {
 
             this.threadName = threadName;
             this.numbers = numbers;
         }
 
-        public ThreadA() {
+        public ThreadEven() {
         }
 
         @Override
@@ -98,15 +97,15 @@ public class ThreadsJava {
 
     }
 
-    static class ThreadB extends Thread {
+    static class ThreadOdd extends Thread {
 
-        ThreadB(Thread threadName) {
+        ThreadOdd(Thread threadName) {
 
             this.threadName = threadName;
             this.numbers = numbers;
         }
 
-        public ThreadB() {
+        public ThreadOdd() {
         }
 
         @Override

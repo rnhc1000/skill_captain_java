@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Runner implements Runnable {
 
-
     @Override
     public void run() {
         List<String> race = Arrays.asList();

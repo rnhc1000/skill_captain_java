@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class Lists {
     
-    public static void main(String... args) {
+    public static void main(String[] args) {
 
         List<String> groceryList = new ArrayList<String>();
 
@@ -43,16 +43,9 @@ public class Lists {
         boolean containsCake = false;
         containsCake = groceryList.contains("Chocolate Cake");
         System.out.println(containsCake);
-
         //ear the groceryList
         groceryList.clear();
-
         System.out.println(groceryList);
-
-
-
-
-        
     }
 }
 ;
